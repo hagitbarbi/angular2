@@ -1,0 +1,17 @@
+<section class="products">
+    <ng-container *ngFor="let product of products">
+      <div routerLink="/details/{{product.id}}" class="product-card" *ngIf="!filterByCategory || filterByCategory == product.category" >
+        <i *ngIf="product.isFavorite" class="fa fa-star favorite"></i>
+        <div class="product-image">
+          <img [src]="product.image"/>
+        </div>
+        <div class="product-info">
+          <h5>{{product.title}}</h5>
+          <h6>{{product.price}} $</h6>
+          <span [class]="{popular: product.sellNo > 19, notPopular: product.sellNo < 20}" *ngIf="product.sellNo">Ordered {{product.sellNo}} Times</span>
+          <h6>Added {{product.openDate.toString().slice(6, 8) + "." + 
+          product.openDate.toString().slice(4, 6) + "." + product.openDate.toString().slice(0, 4)}}</h6>
+        </div>
+      </div>
+    </ng-container>
+  </section>

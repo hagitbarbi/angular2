@@ -1,0 +1,3 @@
+<app-header (filterCatChange)="selectedCategory=$event" (sortByChange)="selectedSortBy=$event"></app-header>
+
+<app-products [filterByCategory]="selectedCategory" [sortBy]="selectedSortBy"></app-products>
